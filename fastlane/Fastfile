@@ -23,7 +23,7 @@ before_all do |lane, options|
     user_name: "update@hellotalk.com",
     password: "Hello123",
     subject: "default",
-    message_body: "Hi! @issenn \r\n A new app upload success \r\n#{ENV['CHANGELOG']}"
+    message_body: "Hi! @issenn"
     # recipients: ["issenn@hellotalk.com", "apia@hellotalk.com"]
   )
   gradle(
