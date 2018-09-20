@@ -29,7 +29,7 @@ end
 before_each do |lane, options|
   # ...
 end
-
+=begin
 desc "Submit a new Beta Build to Beta"
 lane :do_publish_beta do |options|
   gradle(
@@ -62,7 +62,7 @@ lane :do_upload_firim_for_all do
     )
   end
 end
-
+=end
 desc "Submit a new Release Build to all"
 lane :do_publish_all do |options|
   do_publish_china
@@ -124,7 +124,7 @@ lane :do_upload_firim do
       password: "Hello123",
       subject: "default",
       message_body: "Hi! @issenn \r\n A new app upload success \r\nFlavor: #{flavor} \r\n#{ENV['CHANGELOG']}",
-      recipients: ["issenn@hellotalk.com", "update@hellotalk.com"]
+      recipients: ["issenn@hellotalk.com", "apia@hellotalk.com"]
     )
     $upload_retry=0
   rescue => ex
