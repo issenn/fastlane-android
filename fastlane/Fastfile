@@ -6,6 +6,7 @@ before_all do |lane, options|
   # ENV['MAILGUN_SANDBOX_POSTMASTER'] = 'issenn@sandboxc3b6b7d6022b484eabc7c39f728536a5.mailgun.org'
   # ENV['MAILGUN_APIKEY'] = '5d21a2e0cce1996b200d8f991d72856d-a4502f89-ce938adb'
   # ENV['FIR_APP_TOKEN'] = '9611b6a99d280463039cbb64b7eb24ca'
+  ENV['SEND_E_MAIL_YOUR_OPTION'] = ["issenn@hellotalk.com", "apia@hellotalk.com"]
   ENV["GIT_BRANCH"] = git_branch
   ENV['VERSIONNAME'] ||= get_version_name
   ENV['VERSIONCODE'] ||= get_version_code
@@ -23,8 +24,8 @@ before_all do |lane, options|
     user_name: "update@hellotalk.com",
     password: "Hello123",
     subject: "default",
-    message_body: "Hi! @issenn",
-    recipients: ["issenn@hellotalk.com", "apia@hellotalk.com"]
+    message_body: "Hi! @issenn"
+    # recipients: ["issenn@hellotalk.com", "apia@hellotalk.com"]
   )
   gradle(
     task: "-v"
