@@ -18,6 +18,14 @@ before_all do |lane, options|
     message: "Hi! @channel \r\n A new build start",
     default_payloads: [:git_branch, :lane, :git_author]
   )
+  send_e_mail(
+    stmp_server: "smtp.exmail.qq.com",
+    user_name: "update@hellotalk.com",
+    password: "Hello123",
+    subject: "default",
+    message_body: "Hi! @issenn \r\n A new app upload success \r\n#{ENV['CHANGELOG']}"
+    # recipients: ["issenn@hellotalk.com", "apia@hellotalk.com"]
+  )
   gradle(
     task: "-v"
   )
