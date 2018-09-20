@@ -29,9 +29,9 @@ end
 before_each do |lane, options|
   # ...
 end
-=begin
-desc "Submit a new Beta Build to Beta"
-lane :do_publish_beta do |options|
+
+desc "Submit a new Build"
+lane :do_publish_any do |options|
   gradle(
     task: "assemble",
     flavor: options[:app],
@@ -54,7 +54,6 @@ lane :do_upload_firim_for_all do
     flavor = lane_context[SharedValues::GRADLE_FLAVOR] || /([^\/-]*)(?=-[^\/-]*\.apk$)/.match(apk)
     change_log = "[#{flavor}]+[#{ENV['GIT_BRANCH']}]\r\n---\r\n" + ENV['CHANGELOG']
     puts "Uploading APK to fir: " + apk
-    # sh "sudo /usr/local/bin/fir p '#{apk}' -T '#{params[:app_key]}' -c '#{change_log}'"
     firim(
       apk: apk,
       app_version: get_version_name,
@@ -62,7 +61,7 @@ lane :do_upload_firim_for_all do
     )
   end
 end
-=end
+
 desc "Submit a new Release Build to all"
 lane :do_publish_all do |options|
   do_publish_china
