@@ -176,14 +176,6 @@ lane :do_upload do
         success: false,
         default_payloads: [:git_branch, :lane, :git_author, :test_result]
       )
-      send_e_mail(
-        stmp_server: "smtp.exmail.qq.com",
-        user_name: "issenn@hellotalk.com",
-        password: "Mn20104125106",
-        subject: "default",
-        message_body: "content",
-        recipients: "issenn@hellotalk.com"
-      )
       # raise ex
       puts ex
     end
