@@ -130,7 +130,6 @@ lane :do_upload_firim do
       password: "Hello123",
       subject: "default",
       message_body: "Hi! @issenn \r\n A new app upload success \r\nFlavor: #{flavor} \r\n#{ENV['CHANGELOG']}"
-      # recipients: ["issenn@hellotalk.com", "apia@hellotalk.com"]
     )
     $upload_retry=0
   rescue => ex
