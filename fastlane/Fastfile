@@ -24,7 +24,6 @@ before_all do |lane, options|
     password: "Hello123",
     subject: "default",
     message_body: "Hi! @issenn"
-    # recipients: ["issenn@hellotalk.com", "apia@hellotalk.com"]
   )
   gradle(
     task: "-v"
