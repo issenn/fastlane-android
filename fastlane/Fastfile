@@ -22,7 +22,7 @@ before_all do |lane, options|
     stmp_server: "smtp.exmail.qq.com",
     user_name: "update@hellotalk.com",
     password: "Hello123",
-    subject: "default",
+    subject: "Android CI - #{ENV['GIT_BRANCH']}",
     message_body: "Hi! @issenn"
   )
   gradle(
@@ -128,7 +128,7 @@ lane :do_upload_firim do
       stmp_server: "smtp.exmail.qq.com",
       user_name: "update@hellotalk.com",
       password: "Hello123",
-      subject: "default",
+      subject: "Android CI - #{ENV['GIT_BRANCH']}",
       message_body: "Hi! @issenn \r\n A new app upload success \r\nFlavor: #{flavor} \r\n#{ENV['CHANGELOG']}"
     )
     $upload_retry=0
