@@ -15,9 +15,6 @@ before_all do |lane, options|
     default_payloads: [:git_branch, :lane, :git_author]
   )
   send_e_mail(
-    # stmp_server: "smtp.exmail.qq.com",
-    # user_name: "update@hellotalk.com",
-    # password: "Hello123",
     subject: "#{ENV['SEND_E_MAIL_SUBJECT']} - #{ENV['GIT_BRANCH']} - CI for #{ENV["FASTLANE_PLATFORM_NAME"]}",
     message_body: "Hi! @issenn, A new build start"
   )
@@ -95,10 +92,7 @@ lane :do_upload_firim do
       default_payloads: [:git_branch, :lane, :git_author, :test_result]
     )
     send_e_mail(
-      # stmp_server: "smtp.exmail.qq.com",
-      # user_name: "update@hellotalk.com",
-      # password: "Hello123",
-      # subject: "Android CI - #{ENV['GIT_BRANCH']}",
+      subject: "#{ENV['SEND_E_MAIL_SUBJECT']} - #{ENV['GIT_BRANCH']} - CI for #{ENV["FASTLANE_PLATFORM_NAME"]}",
       message_body: "Hi! @issenn \r\n A new app upload success \r\nFlavor: #{flavor} \r\n#{ENV['CHANGELOG']}"
     )
     $upload_retry=0
@@ -111,6 +105,10 @@ lane :do_upload_firim do
         message: "Hi! @issenn \r\n A new app upload failed \r\nFlavor: #{flavor}",
         success: false,
         default_payloads: [:git_branch, :lane, :git_author, :test_result]
+      )
+      send_e_mail(
+        subject: "#{ENV['SEND_E_MAIL_SUBJECT']} - #{ENV['GIT_BRANCH']} - CI for #{ENV["FASTLANE_PLATFORM_NAME"]}",
+        message_body: "Hi! @issenn \r\n A new app upload failed \r\nFlavor: #{flavor} \r\n#{ENV['CHANGELOG']}"
       )
       # raise ex
       puts ex
