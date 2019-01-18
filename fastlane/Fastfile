@@ -15,7 +15,7 @@ before_all do |lane, options|
     default_payloads: [:git_branch, :lane, :git_author]
   )
   send_e_mail(
-    stmp_server: "smtp.exmail.qq.com",
+    # stmp_server: "smtp.exmail.qq.com",
     user_name: "update@hellotalk.com",
     password: "Hello123",
     subject: "Android CI - #{ENV['GIT_BRANCH']}",
