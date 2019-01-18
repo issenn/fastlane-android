@@ -33,6 +33,10 @@ before_each do |lane, options|
   # ...
 end
 
+lane :test do |options|
+  puts 'testing'
+end
+
 desc "Submit a new Release Build to all"
 lane :do_publish_all do |options|
   do_publish_china
