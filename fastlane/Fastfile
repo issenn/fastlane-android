@@ -67,7 +67,9 @@ lane :do_publish_google do |options|
 end
 
 lane :do_jiagu do |options|
-  sh "sudo /usr/local/bin/fir p '#{apk}' -T '#{params[:app_key]}' -c '#{change_log}'"
+  source = lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH]
+  sh "mkdir -p 'app/build/jiagu'"
+  sh "java -jar  'tool/jiagu/jiagu.jar' -jiagu '#{source}' 'app/build/jiagu'"
 end
 
 $upload_retry=0
