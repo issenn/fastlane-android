@@ -68,12 +68,12 @@ lane :do_publish_google do |options|
 end
 
 lane :do_jiagu do |options|
-  source = lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH]
+  # source = lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH]
   sh "pwd"
   sh "mkdir -p 'app/build/jiagu'"
   sh "ls"
   sh "ls app/build"
-  sh "java -jar  'tool/jiagu/jiagu.jar' -jiagu '#{source}' 'app/build/jiagu'"
+  # sh "java -jar  'tool/jiagu/jiagu.jar' -jiagu '#{source}' 'app/build/jiagu'"
 end
 
 $upload_retry=0
