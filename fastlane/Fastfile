@@ -34,6 +34,9 @@ lane :test do |options|
   puts 'testing'
   puts lane_context[SharedValues::PLATFORM_NAME]
   puts ENV["FASTLANE_PLATFORM_NAME"]
+  puts lane_context[SharedValues::BUILD_NUMBER]
+  puts lane_context[SharedValues::VERSION_NUMBER]
+  jiagu360_apk
 end
 
 desc "Submit a new Release Build to all"
