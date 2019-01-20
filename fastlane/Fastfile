@@ -39,7 +39,8 @@ end
 desc "Submit a new Release Build to all"
 lane :do_publish_all do |options|
   do_publish_china
-  do_publish_google
+  do_upload_firim
+  # do_publish_google
 end
 
 desc "Submit a new Release Build to China"
@@ -50,7 +51,7 @@ lane :do_publish_china do |options|
     build_type: "Release",
     print_command_output: true
   )
-  do_upload_firim
+  # do_upload_firim
 end
 
 desc "Submit a new Release Build to Google"
@@ -61,7 +62,7 @@ lane :do_publish_google do |options|
     build_type: "Release",
     print_command_output: true
   )
-  do_upload_firim
+  # do_upload_firim
 end
 
 $upload_retry=0
