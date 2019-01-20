@@ -66,6 +66,10 @@ lane :do_publish_google do |options|
   # do_upload_firim
 end
 
+lane :do_jiagu do |options|
+  sh "sudo /usr/local/bin/fir p '#{apk}' -T '#{params[:app_key]}' -c '#{change_log}'"
+end
+
 $upload_retry=0
 
 lane :do_upload_firim do
