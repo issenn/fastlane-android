@@ -39,8 +39,8 @@ end
 desc "Submit a new Release Build to all"
 lane :do_publish_all do |options|
   do_publish_china
-  do_upload_firim
   do_jiagu
+  do_upload_firim
   # do_publish_google
   # do_upload_firim
 end
@@ -69,7 +69,10 @@ end
 
 lane :do_jiagu do |options|
   source = lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH]
+  sh "pwd"
   sh "mkdir -p 'app/build/jiagu'"
+  sh "ls"
+  sh "ls app/build"
   sh "java -jar  'tool/jiagu/jiagu.jar' -jiagu '#{source}' 'app/build/jiagu'"
 end
 
