@@ -3,10 +3,7 @@
 
 before_all do |lane, options|
   ENV["GIT_BRANCH"] = git_branch
-  ENV['VERSIONNAME'] ||= get_version_name(
-    gradle_file_path: 'config.gradle',
-    ext_constant_name: 'versionName'
-  )
+  ENV['VERSIONNAME'] ||= get_version_name
   ENV['VERSIONCODE'] ||= get_version_code
   ENV['CHANGELOG'] = read_changelog(
     changelog_path: './CHANGELOG.md',
