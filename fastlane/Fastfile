@@ -4,9 +4,7 @@
 before_all do |lane, options|
   ENV["GIT_BRANCH"] = git_branch
   ENV['VERSIONNAME'] ||= get_version_name().tr(",","")
-  puts ENV['VERSIONNAME']
   ENV['VERSIONCODE'] ||= get_version_code().tr(",","")
-  puts ENV['VERSIONCODE']
   ENV['CHANGELOG'] = read_changelog(
     changelog_path: './CHANGELOG.md',
     section_identifier: '[Unreleased]',
@@ -70,8 +68,8 @@ lane :do_upload_firim do
   puts lane_context[SharedValues::GRADLE_ALL_APK_OUTPUT_PATHS]
   puts lane_context[SharedValues::GRADLE_FLAVOR]
   puts lane_context[SharedValues::GRADLE_BUILD_TYPE]
-  puts get_version_name
-  puts get_version_code
+  puts get_version_name().tr(",","")
+  puts get_version_code().tr(",","")
   begin
     flavor = lane_context[SharedValues::GRADLE_FLAVOR] || /([^\/-]*)(?=-[^\/-]*\.apk$)/.match(apk)
     slack(
@@ -81,8 +79,8 @@ lane :do_upload_firim do
     change_log = "[#{flavor}]+[#{ENV['GIT_BRANCH']}]\r\n---\r\n" + ENV['CHANGELOG']
     firim(
       apk: lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH],
-      app_version: get_version_name,
-      app_build_version: get_version_code,
+      app_version: get_version_name().tr(",",""),
+      app_build_version: get_version_code().tr(",",""),
       app_changelog: change_log
     )
     slack(
