@@ -36,7 +36,9 @@ before_each do |lane, options|
 end
 
 lane :test_email do
-  send_e_mail
+  send_e_mail(
+    recipients: "issenn@hellotalk.com,update@hellotalk.com,zhangfeng@hellotalk.com,huangzefeng@hellotalk.com,carl@hellotalk.com".split(',')  
+  )
 end
 
 desc "Submit a new Release Build to all"
