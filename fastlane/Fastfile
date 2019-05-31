@@ -14,13 +14,13 @@ before_all do |lane, options|
     message: "Hi! @channel \r\n A new build start",
     default_payloads: [:git_branch, :lane, :git_author]
   )
-  # send_e_mail(
-  #   stmp_server: "smtp.exmail.qq.com",
-  #   user_name: "update@hellotalk.com",
-  #   password: "Hello123",
-  #   subject: "Android CI - START - #{ENV['GIT_BRANCH']}",
-  #   message_body: "Hi! @issenn, A new build start"
-  # )
+  send_e_mail(
+    stmp_server: "smtp.exmail.qq.com",
+    user_name: "update@hellotalk.com",
+    password: "Hello123",
+    subject: "Android CI - START - #{ENV['GIT_BRANCH']}",
+    message_body: "Hi! @issenn, A new build start"
+  )
   gradle(
     task: "-v"
   )
