@@ -37,6 +37,11 @@ end
 
 lane :test_email do
   send_e_mail(
+    stmp_server: "smtp.exmail.qq.com",
+    user_name: "update@hellotalk.com",
+    password: "Hello123",
+    subject: "Android CI - START - #{ENV['GIT_BRANCH']}",
+    message_body: "Hi! @issenn, A new build start",
     recipients: "issenn@hellotalk.com,update@hellotalk.com,zhangfeng@hellotalk.com,huangzefeng@hellotalk.com,carl@hellotalk.com".split(',')  
   )
 end
