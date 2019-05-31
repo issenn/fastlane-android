@@ -23,12 +23,12 @@ before_all do |lane, options|
   #   recipients: "issenn@hellotalk.com,update@hellotalk.com,zhangfeng@hellotalk.com,huangzefeng@hellotalk.com,carl@hellotalk.com"
   #   # recipients: ENV['SEND_E_MAIL_RECIPIENTS'].split(',')
   # )
-  # gradle(
-  #   task: "-v"
-  # )
-  # gradle(
-  #   task: "clean"
-  # )
+  gradle(
+    task: "-v"
+  )
+  gradle(
+    task: "clean"
+  )
 end
 
 before_each do |lane, options|
